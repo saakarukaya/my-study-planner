@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f5efe5">
+<title>My Study Planner</title>
+<style>
+:root{--cream:#f5efe5;--paper:#fffdf9;--brown:#493326;--muted:#88796c;--gold:#b58a45;--lecture:#e7eef8;--lecture-ink:#31557b;--study:#e8f2e9;--study-ink:#356b43;--line:#e8dfd3}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--brown);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{padding:28px 18px 20px;background:linear-gradient(145deg,#f9f4eb,#eadcc8);border-bottom:1px solid var(--line)}
+.wrap{max-width:760px;margin:auto} .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{font-family:Georgia,serif;font-size:32px;margin:8px 0 4px;font-weight:600} .sub{color:var(--muted);font-size:13px}
+.stats{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.stat{background:#fff9f0;border:1px solid #e8dac5;border-radius:12px;padding:9px 12px;font-size:12px}.stat b{display:block;font-size:15px;color:var(--brown);margin-bottom:2px}
+main{padding:16px 14px 40px}.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:4px 2px 14px}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}.tabs{display:flex;gap:7px;overflow:auto;padding:2px 0 12px;scrollbar-width:none}.tabs button{border:1px solid #ddcfbd;background:#fffaf3;color:var(--brown);padding:10px 14px;border-radius:999px;font-weight:650;white-space:nowrap}.tabs button.active{background:var(--brown);color:white;border-color:var(--brown)}
+.day{display:none}.day.active{display:block}.day h2{font-family:Georgia,serif;font-size:24px;margin:10px 2px 4px}.focus{font-size:11px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin:0 2px 14px}
+.event{display:grid;grid-template-columns:108px 1fr;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:13px;padding:12px;margin:8px 0;align-items:start}
+.time{font-size:12px;font-weight:750;line-height:1.4;padding-top:2px}.kind{display:inline-block;font-size:9px;letter-spacing:.08em;font-weight:800;border-radius:5px;padding:4px 6px;margin-bottom:5px}.lecture .kind{background:var(--lecture);color:var(--lecture-ink)}.study .kind{background:var(--study);color:var(--study-ink)}.break .kind{background:#f2ece4;color:#76685b}
+.event strong{display:block;font-size:13px;line-height:1.35}.event small{display:block;color:var(--muted);font-size:11px;margin-top:3px;line-height:1.4}
+.lecture{border-left:3px solid #8ca9ca}.study{border-left:3px solid #8db394}.break{border-left:3px solid #cbbca9}
+.note{margin-top:16px;background:#fff8ed;border:1px solid #eadcc7;border-radius:13px;padding:14px;font-size:12px;line-height:1.55;color:#6f5d4b}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:8px 15px 25px}
+@media(min-width:620px){header{padding:36px 24px 24px}main{padding:20px 24px 50px}.event{grid-template-columns:130px 1fr;padding:14px}.time{font-size:13px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="eyebrow">University of Ghana · Semester 1 · 2026/2027</div>
+<h1>My Study Planner</h1><div class="sub">A calm, consistent plan for lectures, revision and practice.</div>
+<div class="stats">
+<div class="stat"><b>4 hours</b>Calculus I weekly</div>
+<div class="stat"><b>Evenings</b>Main study time</div>
+<div class="stat"><b>Sunday</b>Rest day</div>
+</div></div></header>
+<main class="wrap">
+<div class="legend"><span><i class="dot" style="background:#8ca9ca"></i>University lecture</span><span><i class="dot" style="background:#8db394"></i>Personal study</span><span><i class="dot" style="background:#cbbca9"></i>Break / free time</span></div>
+<nav class="tabs" aria-label="Choose day">
+<button class="active" data-day="monday">Mon</button><button data-day="tuesday">Tue</button><button data-day="wednesday">Wed</button><button data-day="thursday">Thu</button><button data-day="friday">Fri</button><button data-day="saturday">Sat</button><button data-day="sunday">Sun</button>
+</nav>
+
+<section class="day active" id="monday"><h2>Monday</h2><p class="focus">Calculus II + Programming</p>
+<div class="event lecture"><div class="time">7:30–8:20 AM</div><div><span class="kind">LECTURE</span><strong>DCIT 201 – Programming 1</strong></div></div>
+<div class="event lecture"><div class="time">8:30–9:20 AM</div><div><span class="kind">LECTURE</span><strong>DCIT 203 – Digital Logic</strong></div></div>
+<div class="event lecture"><div class="time">9:30–11:20 AM</div><div><span class="kind">LECTURE</span><strong>CBAS 210 – Academic Writing II</strong></div></div>
+<div class="event lecture"><div class="time">11:30 AM–1:20 PM</div><div><span class="kind">LECTURE</span><strong>MATH 223 – Calculus II</strong></div></div>
+<div class="event break"><div class="time">1:20–6:30 PM</div><div><span class="kind">FREE TIME</span><strong>Lunch, commute and rest</strong></div></div>
+<div class="event study"><div class="time">6:30–7:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 223 – Lecture revision</strong></div></div>
+<div class="event break"><div class="time">7:30–7:45 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">7:45–8:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>DCIT 201 – Coding practice</strong></div></div>
+<div class="event break"><div class="time">8:45–9:00 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">9:00–10:00 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 223 – Exercises</strong></div></div></section>
+
+<section class="day" id="tuesday"><h2>Tuesday</h2><p class="focus">Vectors + Digital Logic + Calculus I</p>
+<div class="event study"><div class="time">9:00–10:30 AM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 123 – Vectors and Geometry</strong></div></div>
+<div class="event break"><div class="time">10:30–10:45 AM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">10:45–11:45 AM</div><div><span class="kind">PERSONAL STUDY</span><strong>DCIT 203 – Logic exercises</strong></div></div>
+<div class="event break"><div class="time">11:45 AM–3:30 PM</div><div><span class="kind">FREE TIME</span><strong>Lunch, rest and preparation</strong></div></div>
+<div class="event lecture"><div class="time">3:30–5:20 PM</div><div><span class="kind">LECTURE</span><strong>MATH 123 – Vectors and Geometry</strong></div></div>
+<div class="event break"><div class="time">5:20–7:00 PM</div><div><span class="kind">FREE TIME</span><strong>Commute, dinner and rest</strong></div></div>
+<div class="event study"><div class="time">7:00–8:00 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>STAT 221 – Probability practice</strong></div></div>
+<div class="event break"><div class="time">8:00–8:15 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">8:15–9:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>Calculus I – Supplementary course</strong><small>Concepts and learning new topics · 1.5 hours</small></div></div></section>
+
+<section class="day" id="wednesday"><h2>Wednesday</h2><p class="focus">Calculus II + Digital Logic</p>
+<div class="event lecture"><div class="time">7:30–9:20 AM</div><div><span class="kind">LECTURE</span><strong>MATH 223 – Calculus II</strong></div></div>
+<div class="event break"><div class="time">9:20 AM–3:30 PM</div><div><span class="kind">FREE TIME</span><strong>Meals, rest and personal activities</strong><small>No supplementary Calculus I scheduled here.</small></div></div>
+<div class="event lecture"><div class="time">3:30–5:20 PM</div><div><span class="kind">LECTURE</span><strong>DCIT 203 – Digital Logic</strong></div></div>
+<div class="event break"><div class="time">5:20–6:45 PM</div><div><span class="kind">FREE TIME</span><strong>Commute, dinner and rest</strong></div></div>
+<div class="event study"><div class="time">6:45–7:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>DCIT 203 – Logic practice</strong></div></div>
+<div class="event break"><div class="time">7:45–8:00 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">8:00–9:00 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 223 – Calculus exercises</strong></div></div>
+<div class="event study"><div class="time">9:00–9:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>STAT 223 – Quick revision</strong></div></div></section>
+
+<section class="day" id="thursday"><h2>Thursday</h2><p class="focus">Statistics + Academic Writing</p>
+<div class="event lecture"><div class="time">7:30–8:20 AM</div><div><span class="kind">LECTURE</span><strong>STAT 221 – Probability I</strong></div></div>
+<div class="event lecture"><div class="time">8:30–9:20 AM</div><div><span class="kind">LECTURE</span><strong>STAT 223 – Elementary Statistics</strong></div></div>
+<div class="event break"><div class="time">9:20 AM–3:30 PM</div><div><span class="kind">FREE TIME</span><strong>Meals, rest and personal time</strong></div></div>
+<div class="event lecture"><div class="time">3:30–4:20 PM</div><div><span class="kind">LECTURE</span><strong>CBAS 210 – Academic Writing II</strong></div></div>
+<div class="event break"><div class="time">4:20–6:30 PM</div><div><span class="kind">FREE TIME</span><strong>Commute and rest</strong></div></div>
+<div class="event study"><div class="time">6:30–7:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>STAT 221 – Probability exercises</strong></div></div>
+<div class="event break"><div class="time">7:30–7:45 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">7:45–8:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 123 – Problem-solving</strong></div></div>
+<div class="event break"><div class="time">8:45–9:00 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">9:00–9:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>CBAS 210 – Writing practice</strong></div></div></section>
+
+<section class="day" id="friday"><h2>Friday</h2><p class="focus">Programming + Statistics</p>
+<div class="event study"><div class="time">8:00–9:30 AM</div><div><span class="kind">PERSONAL STUDY</span><strong>DCIT 201 – Coding practice</strong></div></div>
+<div class="event break"><div class="time">9:30–9:45 AM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">9:45–10:30 AM</div><div><span class="kind">PERSONAL STUDY</span><strong>STAT 223 – Exercises</strong></div></div>
+<div class="event break"><div class="time">10:30–11:30 AM</div><div><span class="kind">FREE TIME</span><strong>Preparation and lunch</strong></div></div>
+<div class="event lecture"><div class="time">11:30 AM–1:20 PM</div><div><span class="kind">LECTURE</span><strong>STAT 223 – Elementary Statistics</strong></div></div>
+<div class="event lecture"><div class="time">1:30–3:20 PM</div><div><span class="kind">LECTURE</span><strong>STAT 221 – Probability I</strong></div></div>
+<div class="event lecture"><div class="time">3:30–5:20 PM</div><div><span class="kind">LECTURE</span><strong>DCIT 201 – Programming 1</strong></div></div>
+<div class="event lecture"><div class="time">5:30–6:20 PM</div><div><span class="kind">LECTURE</span><strong>MATH 123 – Vectors and Geometry</strong></div></div>
+<div class="event break"><div class="time">6:20–7:45 PM</div><div><span class="kind">FREE TIME</span><strong>Commute, dinner and rest</strong></div></div>
+<div class="event study"><div class="time">7:45–8:15 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>Light lecture recap</strong></div></div></section>
+
+<section class="day" id="saturday"><h2>Saturday</h2><p class="focus">Independent study · Starts at noon</p>
+<div class="event study"><div class="time">12:00–2:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>Calculus I – Supplementary course</strong><small>Worked examples, exercises and past questions · 2.5 hours</small></div></div>
+<div class="event break"><div class="time">2:30–2:45 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">2:45–3:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 223 – Calculus II</strong></div></div>
+<div class="event break"><div class="time">3:45–4:30 PM</div><div><span class="kind">BREAK</span><strong>Lunch and rest</strong></div></div>
+<div class="event study"><div class="time">4:30–5:30 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>MATH 123 – Vectors and Geometry</strong></div></div>
+<div class="event break"><div class="time">5:30–5:45 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">5:45–6:45 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>DCIT 201 / DCIT 203 – Alternate weekly</strong></div></div>
+<div class="event break"><div class="time">6:45–7:00 PM</div><div><span class="kind">BREAK</span><strong>Rest</strong></div></div>
+<div class="event study"><div class="time">7:00–8:00 PM</div><div><span class="kind">PERSONAL STUDY</span><strong>STAT 221 / STAT 223 – Alternate weekly</strong></div></div></section>
+
+<section class="day" id="sunday"><h2>Sunday</h2><p class="focus">Rest and reset · No compulsory study</p>
+<div class="event break"><div class="time">Morning</div><div><span class="kind">PERSONAL TIME</span><strong>Prayer, breakfast and relaxation</strong></div></div>
+<div class="event break"><div class="time">Afternoon</div><div><span class="kind">PERSONAL TIME</span><strong>Cleaning, laundry and rest</strong></div></div>
+<div class="event break"><div class="time">Evening</div><div><span class="kind">RESET</span><strong>Prepare for the new week</strong></div></div>
+<div class="note">Sunday is kept free of compulsory academic work. No Calculus I or scheduled revision.</div></section>
+
+<div class="note"><strong>Calculus I target: 4 hours per week.</strong><br>Tuesday 8:15–9:45 PM (1.5 hours) + Saturday 12:00–2:30 PM (2.5 hours). Keep a separate notebook for this supplementary course.</div>
+</main>
+<footer>My Study Planner · Consistency over cramming ✦</footer>
+<script>
+document.querySelectorAll('.tabs button').forEach(button=>{
+ button.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.day').forEach(d=>d.classList.remove('active'));
+  button.classList.add('active');
+  document.getElementById(button.dataset.day).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+ });
+});
+</script>
+</body></html>
